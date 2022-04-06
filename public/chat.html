@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <meta name="description" content="Realtime chat room app" />
+    <meta name="author" content="Lilli" />
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="app.js"></script>
+    <title>ChatRoom</title>
+  </head>
+  <body>
+    <main class="room">
+      <nav class="nav">
+        <span class="logo" role="img" aria-hidden="true">
+          <i class="fa-solid fa-comments"></i>
+        </span>
+        <button id="leave"
+          >Leave
+          <span class="leave-icon" role="img" aria-hidden="true">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </span>
+        </button>
+      </nav>
+
+      <main class="main-chat">
+        <aside class="chat-aside">
+          <button
+            title="close aside"
+            class="close-aside"
+            aria-label="close icon"
+          >
+            <i class="fa fa-times"></i>
+          </button>
+          <h2 class="title">
+            <span role="img" aria-hidden="true">
+              <i class="fa-solid fa-users"></i>
+            </span>
+            Users
+          </h2>
+          <ul id="users"></ul>
+        </aside>
+        <main class="chat-messages">
+          <button
+            title="active users"
+            class="toggle-aside"
+            aria-label="show users"
+          >
+            <i class="fa-solid fa-angles-right"></i>
+          </button>
+          <article class="messages-edges">
+            <article class="messages-container"></article>
+          </article>
+        </main>
+      </main>
+
+      <form class="chat-form">
+        <input
+          type="text"
+          id="msg"
+          name="message"
+          placeholder="Say something..."
+          aria-label="Enter message"
+          autocomplete="off"
+          required
+          aria-required="true"
+        />
+        <button type="submit" class="btn">
+          <span>send</span>
+          <i class="fa-solid fa-paper-plane" aria-label="send"></i>
+        </button>
+      </form>
+      <div class="alert-overlay">
+        <div class="alert" role="alert">
+          <button title="close alert" class="close" aria-label="close icon">
+            <i class="fa fa-times"></i>
+          </button>
+          <button class="leave-icon"></button>
+          <p>Are you sure you wanna leave?</p>
+          <div class="btn-container">
+            <button class="btn alert-btn alert-stay">stay</button>
+            <button class="btn alert-btn alert-leave">leave</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

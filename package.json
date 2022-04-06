@@ -1,0 +1,22 @@
+{
+  "name": "chat-room",
+  "version": "1.0.0",
+  "description": "Realtime chat room app",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Lilli",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "moment": "^2.29.1",
+    "socket.io": "^4.4.1"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
