@@ -1,11 +1,8 @@
 import express from "express";
-import path from "path";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { formatMessageDate } from "./utils/messages.js";
 import { addUser, getUser, removeUser, users } from "./utils/users.js";
-
-// app.set("trust proxy", 1);
 
 const app = express();
 const server = createServer(app);
