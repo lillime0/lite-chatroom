@@ -305,6 +305,9 @@ select {
 .message .text {
   color: #fff;
 }
+.text a {
+  color: royalblue;
+}
 .toggle-aside {
   position: absolute;
   left: 0.5rem;

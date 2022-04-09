@@ -35,6 +35,11 @@ chatForm.addEventListener("submit", e => {
   inputMessage.value = "";
 });
 
+const urlify = text => {
+  var urlRegex = /(https?:\/\/[^\s]+)/;
+  return text.replace(urlRegex, `<a href="$1" target="_blank">$1</a>`);
+};
+
 const displayUsers = users => {
   userList.innerHTML = "";
   users.forEach(user => {
@@ -60,7 +65,7 @@ const displayMessage = message => {
   }
   const p = document.createElement("p");
   p.classList.add("text");
-  p.textContent = message.text;
+  p.innerHTML = urlify(message.text);
   article.appendChild(p);
   chatContainer.appendChild(article);
 };
