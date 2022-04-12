@@ -131,7 +131,7 @@ select {
 .nav {
   justify-content: space-between;
   align-items: center;
-  padding-block: 0.6em;
+  padding-block: 0.5em;
   padding-inline: 3em;
 }
 .nav .logo {

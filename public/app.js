@@ -35,11 +35,6 @@ chatForm.addEventListener("submit", e => {
   inputMessage.value = "";
 });
 
-const urlify = text => {
-  var urlRegex = /(https?:\/\/[^\s]+)/;
-  return text.replace(urlRegex, `<a href="$1" target="_blank">$1</a>`);
-};
-
 const displayUsers = users => {
   userList.innerHTML = "";
   users.forEach(user => {
@@ -49,6 +44,14 @@ const displayUsers = users => {
   });
 };
 
+const urlify = text => {
+  const urlRegex =
+    /(\b(((https?|ftp|file|):\/\/)|www[.])[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gi;
+  return text.replace(urlRegex, (url, b, c) => {
+    let url2 = c == "www." ? `https://${url}` : url;
+    return `<a href=${url2} target="_blank">${url}</a>`;
+  });
+};
 const displayMessage = message => {
   const article = document.createElement("article");
   article.classList.add("message");
